@@ -1,0 +1,7 @@
+# Ignore compiled binaries
+#This tells Git not to track compiled C++ outputs.
+#So when you run g++ file.cpp -o file.out, the .out file won’t clutter your commits.
+
+*.out
+*.exe
+*.o
