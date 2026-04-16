@@ -1,6 +1,7 @@
 // Problem: Move Zeroes To The End
 // Link: https://leetcode.com/problems/move-zeroes/
 // Pattern: Two-pointer
+//https://takeuforward.org/data-structure/move-all-zeros-to-the-end-of-the-array
 
 //Brute Force Soln: TC: O(n) SC: (n) 
 //Approch: Another array to store non-zeroes then copying 

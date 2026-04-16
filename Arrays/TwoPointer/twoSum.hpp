@@ -1,6 +1,7 @@
 // Problem: Two Sum II
 // Link: https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
 // Pattern: Two-pointer
+//https://takeuforward.org/data-structure/two-sum-check-if-a-pair-with-given-sum-exists-in-array
 
 //Brute Force Soln: TC: O(n^2) SC: O(1)
 //Approch: Nested loop i and j
