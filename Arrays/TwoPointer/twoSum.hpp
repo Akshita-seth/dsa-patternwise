@@ -34,3 +34,88 @@ public:
         return {0,0};
     }
 };
+
+
+//Counting number of pairs with sum equal to target given sorted array
+//https://www.geeksforgeeks.org/problems/pair-with-given-sum-in-a-sorted-array4940/1
+
+class Solution {
+  public:
+    int countPairs(vector<int> &arr, int target) {
+        // Complete the function
+         int i,j,sum,c;
+        int n = arr.size();
+        i = 0;
+        j = n-1;
+        c=0;
+        while(i<j)
+        {
+            sum = arr[i] + arr[j];
+            if(sum == target)
+            {
+                //Case 1 
+                if(arr[i] == arr[j])
+                {
+                    int cnt = j-i+1;
+                    c+= (cnt*(cnt-1))/2; //nC2 formula
+                    break;
+                }
+                //Case 2
+                int leftCount = 1, rightCount = 1;
+                //Duplicates on the left
+                while(i+1 < j && arr[i] == arr[i+1])
+                {
+                    leftCount++;
+                    i++;    
+                }
+                
+                //Duplicates on the right
+                while(j-1 > i && arr[j] == arr[j-1])
+                {
+                    rightCount++;
+                    j--;
+                }
+                
+                c+= leftCount * rightCount;
+                i++;
+                j--;
+                
+            }
+            else if(sum > target)
+            j--;
+            else
+            i++;
+        }
+        return c;
+    }
+};
+
+// Counting number of pairs when unsorted array given (Hashmap technique)
+
+class Solution {
+public:
+    int countPairs(vector<int> &arr, int target) {
+        unordered_map<int,int> freq;
+        for (int x : arr) {
+            freq[x]++;
+        }
+
+        int c = 0;
+        for (auto &p : freq) {
+            int x = p.first;
+            int y = target - x;
+
+            if (freq.find(y) != freq.end()) {
+                if (x == y) {
+                    // choose 2 out of freq[x]
+                    c += (freq[x] * (freq[x] - 1)) / 2;
+                } else {
+                    c += freq[x] * freq[y];
+                }
+            }
+        }
+
+        // Each pair counted twice when x != y
+        return c / 2;
+    }
+};
