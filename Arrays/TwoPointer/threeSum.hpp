@@ -17,6 +17,9 @@
 // Optimized: 
 // TC: O(NlogN)+O(N2) sorting + TwoPointer * i loop
 
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
