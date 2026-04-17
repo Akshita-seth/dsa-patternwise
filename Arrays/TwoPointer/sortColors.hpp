@@ -1,7 +1,7 @@
 // Problem: Sort Colors
 // Link: https://leetcode.com/problems/sort-colors/description/
 // Pattern: Two-pointer
-https://takeuforward.org/data-structure/sort-an-array-of-0s-1s-and-2s
+//https://takeuforward.org/data-structure/sort-an-array-of-0s-1s-and-2s
 
 // BFS: Count number of 0s, 1s and 2s then overwrite in the array - Two pass solution
 // TC: O(n)  SC:O(1)
