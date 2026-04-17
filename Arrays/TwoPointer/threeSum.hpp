@@ -6,7 +6,7 @@
 
 //BFS: Three Nested Loops and set data structure to prevent duplicates
 // TC: O(n^3) * O(log(no. of triplets)) sice insertion in set is logN as it is unique   
-// SC: O(2*n) for set and temp 
+// SC: O(2*n) for set and result 
 
 // Better: Hashset use to find third number
 // TC: O(N2 * log(no. of unique triplets))
