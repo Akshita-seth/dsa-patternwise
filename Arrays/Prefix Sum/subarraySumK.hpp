@@ -1,7 +1,8 @@
 // Problem: No. of Subarrays with Sum Equals K
 // Link: https://leetcode.com/problems/subarray-sum-equals-k/
 // Pattern: Prefix-Sum
-//
+//https://takeuforward.org/arrays/count-subarray-sum-equals-k
+//https://www.youtube.com/watch?v=xvNwoz-ufXA&list=PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz&index=34
 
 //Brute Force Soln: TC: O(n^2) SC: (1) 
 //Approch: Nested loop i and j to generate all subarrays, then check sum and count
