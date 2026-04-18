@@ -6,7 +6,7 @@
 //Brute Force Soln: TC: O(n^2) SC: (1) 
 //Approch: Nested loop, i for each element and 2 j loops- one for leftSum calc 0 to <i and another for rightSum calc i+1 to <n
 
-//Optimized TC: O(n)
+//Optimized TC: O(n+n) = O(n)
 //Approach: USe total sum to calc right sum without any loop
 
 #include<bits/stdc++.h>
