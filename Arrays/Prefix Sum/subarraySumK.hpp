@@ -1,15 +1,19 @@
-// Problem: Subarray Sum Equals K
+// Problem: No. of Subarrays with Sum Equals K
 // Link: https://leetcode.com/problems/subarray-sum-equals-k/
 // Pattern: Prefix-Sum
 //
 
 //Brute Force Soln: TC: O(n^2) SC: (1) 
-//Approch: Nested loop, i for each element and 2 j loops- one for leftSum calc 0 to <i and another for rightSum calc i+1 to <n
+//Approch: Nested loop i and j to generate all subarrays, then check sum and count
 
-//Optimized TC: O(n)
-//Approach: USe total sum to calc right sum without any loop
+//Optimized: TC: O(N*logN) [ordered map], O(N*1) [Unordered map best and avg case], O(N*N) [Unorderd map worst case due to collisions]
+// SC: O(N) map
+//Approach: V.Imp 1.storing key as prefix sum and value as freq 
+// 2. prefixSum[0] =1; first entry in map
 
 
+#include<bits/stdc++.h>
+using namespace std;
 
 class Solution {
 public:
@@ -26,3 +30,5 @@ public:
         return cnt;
     }
 };
+
+
