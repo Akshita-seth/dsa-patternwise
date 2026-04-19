@@ -2,6 +2,7 @@
 // Link: https://leetcode.com/problems/subarray-sums-divisible-by-k/
 // Pattern: Prefix-Sum
 //https://copilot.microsoft.com/shares/oPy3sNgo2aR2wGyroCwBJ
+//https://www.youtube.com/watch?v=7IJdLmNJaSA
 
 
 //Brute Force Soln: TC: O(n^2) SC: (1) 
