@@ -1,6 +1,7 @@
 // Problem: Longest Palindromic String
 // Link: https://leetcode.com/problems/longest-palindromic-substring/
 // Pattern: Two-pointer
+//https://www.youtube.com/watch?v=5MS14_6rSa8
 
 //BFS: SHRINKING approach in isPalin 
 //TC: O(N^3) i, j and isPalin
