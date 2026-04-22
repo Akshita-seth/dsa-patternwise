@@ -2,6 +2,9 @@
 // Link: https://leetcode.com/problems/valid-palindrome/description/
 // Pattern: Two-pointer
 
+//If just basic plaindrome check: newS=reverse of string, then check each char
+// SC: O(N) TC: O(N)
+
 // Optimized: TC: O(N) SC: O(N)
 
 class Solution {
