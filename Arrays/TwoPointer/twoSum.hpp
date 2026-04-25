@@ -9,6 +9,18 @@
 //Better Soln: TC: O(n) SC: O(n)
 //Approch: Hashmap
 
+vector<int> twoSum(vector<int>& nums, int target) {
+    unordered_map<int, int> mp; // value -> index
+    for (int i = 0; i < nums.size(); i++) {
+        int complement = target - nums[i];
+        if (mp.find(complement) != mp.end()) {
+            return {mp[complement], i}; // found the pair
+        }
+        mp[nums[i]] = i; // store current value with its index
+    }
+    return {}; // no solution found
+}
+
 //Optimized: TC: O(n)[two pointer] + o(nlogn) [sorting]
 //Approach: Two Pointer, Greedy way
 
