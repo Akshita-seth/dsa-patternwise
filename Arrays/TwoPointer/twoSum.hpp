@@ -129,6 +129,8 @@ public:
         }
 
         // Each pair counted twice when x != y
-        return c / 2;
+        return c / 2; 
+        // Why: When x != y, both (x,y) and (y,x) are counted during iteration. Fix: Divide by 2 at the end.
+    //Interview phrasing: “Since the loop sees both directions of a pair, I normalize by dividing the total count by two.”
     }
 };
