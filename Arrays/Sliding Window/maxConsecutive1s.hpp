@@ -44,3 +44,29 @@ public:
         return maxi;
     }
 };
+
+//https://www.geeksforgeeks.org/problems/max-consecutive-one/1
+// TC: O(N)
+class Solution {
+  public:
+    int maxConsecBits(vector<int> &arr) {
+        // code here
+        int n=arr.size();
+        int ones=0, zeros=0;
+        int maxC=0;
+        for(int i=0; i<n; i++)
+        {
+            if(arr[i] == 1)
+             {
+                ones++; zeros=0;
+             }
+            else
+            {
+                zeros++;
+                ones=0;
+            }
+            maxC = max(maxC, max(ones,zeros));
+        }
+        return maxC;
+    }
+};
