@@ -27,3 +27,26 @@ public:
         return ans;
     }
 };
+
+
+//Optimized: TC: O(2N)
+//Dynamic SW
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int n=nums.size();
+        int l=0, ans=INT_MAX, sum=0;
+
+        for(int r=0; r<n; r++)
+        {
+            sum += nums[r]; //EXPANDING
+            while(sum >= target)
+            {
+                ans = min(ans, r-l+1);
+                sum -= nums[l];
+                l++;
+            }
+        }
+        return (ans == INT_MAX ? 0 : ans);
+    }
+};
