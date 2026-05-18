@@ -97,10 +97,10 @@ public:
 
         for(int j=k; j<n; j++)
         {
-            //Add new element
+            //Add new element => EXPANDING
             windowSum += nums[j];
             freq[nums[j]]++;
-            //Remove old element
+            //Remove old element => SHRINKING
             windowSum -= nums[j-k];
             if(--freq[nums[j-k]] == 0)
               freq.erase(nums[j-k]);
