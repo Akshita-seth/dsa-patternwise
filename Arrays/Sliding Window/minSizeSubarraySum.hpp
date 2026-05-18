@@ -43,7 +43,7 @@ public:
             while(sum >= target)
             {
                 ans = min(ans, r-l+1);
-                sum -= nums[l];
+                sum -= nums[l];  //SHRINKING
                 l++;
             }
         }
