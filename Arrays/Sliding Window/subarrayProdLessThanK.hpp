@@ -38,10 +38,10 @@ public:
         long long prod=1;
         for(int right=0; right<n; right++)
         {
-            prod *= nums[right];
+            prod *= nums[right]; //EXPANDING
             while(prod >= k)
             {
-                prod /= nums[left];
+                prod /= nums[left];  //SHRINKING
                 left++;
             }
             c += right-left+1;  // all subarrays ending at right
