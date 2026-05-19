@@ -31,6 +31,7 @@ public:
 // If we encounter a larger value after a smaller value => remove the smaller.
 // If we encounter a smaller value after a larger value => keep the smaller.
 //Until the present value in the dq is smaller than the upcoming value from arr, we will pop. => while condition and not if
+//We store indices in the deque, and for values of nums we access using the deque value
 
 
 class Solution {
