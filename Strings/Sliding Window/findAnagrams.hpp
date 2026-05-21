@@ -1,8 +1,11 @@
 // Problem: Find all Anagrams in a string
 // https://www.geeksforgeeks.org/dsa/check-whether-two-strings-are-anagram-of-each-other/
+//https://www.youtube.com/watch?v=bK1z7nWoIwE
+//Link: 
 
 
-//BFS: TC: O((sLen - pLen + 1)(pLen)(log pLen) N^2 witha n extra logN
+//Generating all substrings approach
+//BFS: TC: O((sLen - pLen)(pLen)(log pLen) N^2 witha n extra logN
 // Sorting and checking
 //Gets TLE
 class Solution {
@@ -94,9 +97,56 @@ public:
     }
 };
 
+//Optimized: SW and Map TC:O(N)
+//SLIDING WINDOW APPROACH-> since substrings check needed
+// r pointer character check in pMap, if present and freq>0, add in cMap and reduce count by 1. If at end of substring, count=0 => anagram substring found between l and r pointer 
+// => add l index since start index is l of the valid substring but if substring length i.e. r-l+1 > pLen then shrink l before adding as start index
+// r pointer=> increses freq in sMap and reduces count
+// l pointer=> decreases freq in sMap and increases count
+// for expansion of r or Shrinking of l => (pCount.find(s[r]) != pCount.end() && sCount[r] <= pCount[r]) needs to be true. 1st=> character present in the p map & 2nd=> that was a required character for anagram
 
-//
+// Optimized using SW and 2 Maps
+//TC: O(2N) SC: O(
 
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        int pLen=p.size();
+        int sLen=s.size();
+        vector<int> ans;
+        unordered_map<char,int> sCount;
+        unordered_map<char,int> pCount;
+        
+        for(char ch: p)  
+        pCount[ch]++;
+        
+        int l=0, count=pLen;
+        for(int r=0; r<sLen; r++)
+        {
+            char right=s[r];
+            //EXPANSION
+            sCount[right]++;
+            if(pCount.find(right) != pCount.end() && sCount[right] <= pCount[right])
+                count--;
+            //SHRINKING
+            if(r-l+1 > pLen)
+            {
+                char left=s[l];
+                if(pCount.find(left) != pCount.end() && sCount[left] <= pCount[left])
+                    count++;
+
+                sCount[left]--;
+                l++;
+            }
+            if(count == 0)
+            ans.push_back(l);
+        }
+        return ans;
+    }
+};
+
+
+// SW & 1 Map
 
 
 
