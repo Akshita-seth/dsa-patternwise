@@ -106,7 +106,7 @@ public:
 // for expansion of r or Shrinking of l => (pCount.find(s[r]) != pCount.end() && sCount[r] <= pCount[r]) needs to be true. 1st=> character present in the p map & 2nd=> that was a required character for anagram
 
 // Optimized using SW and 2 Maps
-//TC: O(2N) SC: O(
+//TC: O(2N) SC: O(plen + slen)
 
 class Solution {
 public:
