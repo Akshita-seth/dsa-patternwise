@@ -146,9 +146,48 @@ public:
 };
 
 
-// SW & 1 Map
+// SW & 1 Map 
+// TC remains same, no improvement in speed but space is reduced. Interview preferred solution
 
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        int sLen=s.size();
+        int pLen=p.size();
+        vector<int> ans;
+        if(sLen<pLen)
+            return ans;
+         unordered_map<char,int> pMap;
+        
+        for(char ch: p)
+            pMap[ch]++;
+        int l=0,count=pLen;
+        for(int r=0; r<sLen; r++)
+            {
+                //EXPANDING 
+                char right=s[r];
+                //pMap[right]--;
+                //if(pMap[right] >= 0) 
+                   // count--;
+                if(pMap[right] > 0) 
+                    count--;
+                pMap[right]--;
 
+                //SHRINKING
+                char left=s[l];
+                if(r-l+1 > pLen)
+                {
+                    if(pMap[left] >= 0) 
+                      count++;
+                    pMap[left]++;
+                    l++;
+                }
+                if(count==0)
+                    ans.push_back(l);
+            }
+        return ans;
+    }
+};
 
 
 
