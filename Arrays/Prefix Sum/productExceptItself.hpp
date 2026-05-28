@@ -1,11 +1,10 @@
 // Problem: Product of Array except Itself
 // Link: https://leetcode.com/problems/product-of-array-except-self/description/
 // Pattern: Prefix-Sum
-//
+
 
 //Brute Force Soln: TC: O(n^2) SC: (1) 
 //Approach: Nested loop, i and j
-//
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -31,24 +30,31 @@ public:
     }
 };
 
-//Optimized: Two Pass Solution - Just result vector and variable suffix(instead of prod)
+//Optimized: Two Pass Solution. 1st- Calculate leftProduct, 2nd- Find final result using rightProd variable
 // TC: O(n+n) SC: O(n)
 
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
         int n=nums.size();
-        vector<int> result(n,1);
-       
-        for(int i=1; i<n; i++)
+        vector<int> result(n);
+        result[0]=1;
+        //first index as 1 only since nothing on the left of it so leftProduct 1
+        //first we use result array to store the leftProduct/prefixProduct of the array.
+
+        //For this we traverse from left to right in the array
+        for(int l=1; l<n; l++)
+        result[l] = result[l-1] * nums[l-1];
+        
+        //Now to take care of rightProduct/suffixProd we use a rightProd variable
+        //from last index, rightProd as 1 only since nothing on the right of it
+        int rightProd = 1; 
+        
+        //For this we traverse right to left in the array
+        for(int r=n-1; r>=0; r--)
         {
-            result[i] = result[i-1] * nums[i-1];
-        }
-        int suffix=1;
-        for(int i=n-1; i>=0; i--)
-        {
-            result[i] *= suffix;
-            suffix*=nums[i];
+            result[r] *= rightProd;
+            rightProd *= nums[r];
         }
         return result;
     }
