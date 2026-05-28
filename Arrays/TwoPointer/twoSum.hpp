@@ -106,8 +106,9 @@ class Solution {
 // Counting number of pairs when unsorted array given (Hashmap technique)
 
 class Solution {
-public:
+  public:
     int countPairs(vector<int> &arr, int target) {
+        // Complete the function
         unordered_map<int,int> freq;
         for (int x : arr) {
             freq[x]++;
@@ -122,15 +123,12 @@ public:
                 if (x == y) {
                     // choose 2 out of freq[x]
                     c += (freq[x] * (freq[x] - 1)) / 2;
-                } else {
+                } else if(x  < y) {   // else if condition is for skiping to count same pair (x,y) as (y,x).
                     c += freq[x] * freq[y];
                 }
             }
         }
 
-        // Each pair counted twice when x != y
-        return c / 2; 
-        // Why: When x != y, both (x,y) and (y,x) are counted during iteration. Fix: Divide by 2 at the end.
-    //Interview phrasing: “Since the loop sees both directions of a pair, I normalize by dividing the total count by two.”
+        return c; 
     }
 };
