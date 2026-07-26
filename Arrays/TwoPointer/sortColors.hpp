@@ -21,6 +21,11 @@ void sortColors(vector<int>& nums) {
     }
 
 //Optimized: DUTCH NATIONAL FLAG ALGORITHM - One pass solution
+// We maintain three pointers: low → boundary for 0s, mid → current element being checked, high → boundary for 2s
+// Instead of counting or sorting, DNF partitions the array into three regions dynamically:
+// Left side → all 0s
+// Middle → all 1s
+// Right side → all 2s
 // TC: O(n) SC: O(1)
 #include <bits/stdc++.h>
 using namespace std;
