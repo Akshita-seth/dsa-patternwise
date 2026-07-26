@@ -6,6 +6,20 @@
 // BFS: Count number of 0s, 1s and 2s then overwrite in the array - Two pass solution
 // TC: O(n)  SC:O(1)
 
+void sortColors(vector<int>& nums) {
+        int z=0, o=0, t=0;
+        for(int &n:nums)
+        {
+            if(n == 0) z++;
+            else if(n == 1) o++;
+            else if(n == 2) t++;
+        }
+        int i = 0;
+        while (z--) nums[i++] = 0;
+        while (o--) nums[i++] = 1;
+        while (t--) nums[i++] = 2;
+    }
+
 //Optimized: DUTCH NATIONAL FLAG ALGORITHM - One pass solution
 // TC: O(n) SC: O(1)
 #include <bits/stdc++.h>
