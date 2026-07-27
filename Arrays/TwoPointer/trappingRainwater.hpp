@@ -12,6 +12,26 @@
 // BFS: Taking current element i, callc maxLeft and maxRight each time with j loop, then calc total water: total += min(maxLeft, maxRight) - height[i];
 // TC: O(n^2)  SC:O(1)
 
+int trap(vector<int>& height) {
+        int n = height.size();
+        int total = 0;
+        for(int i=0; i<n; i++)
+        {
+            int maxLeft =0, maxRight=0;
+            for(int j=0; j<=i; j++)
+            {
+                maxLeft = max(maxLeft, height[j]);
+            }
+            for(int j=i; j<n; j++)
+            {
+                if(height[j] > maxRight)
+                maxRight = height[j];
+            }
+            total += min(maxLeft, maxRight) - height[i];
+        }
+        return total;
+    }
+
 //Optimized: 
 // TC: O(n) SC: O(1)
 
