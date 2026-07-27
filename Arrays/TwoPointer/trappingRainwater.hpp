@@ -69,3 +69,39 @@ public:
         return totalWater;
     }
 };
+
+// Also correct
+int trap(vector<int>& height) {
+        int n = height.size();
+        int total = 0;
+        int left = 0, right = n-1;
+        int maxLeft = height[0], maxRight = height[n-1];
+        while(left <= right)
+        {
+            if(height[left] <= height[right])
+            {
+                if(height[left] > maxLeft)
+                maxLeft = height[left];
+                else
+                    total += maxLeft - height[left];
+                    left++;
+                             
+            }
+            else
+            {
+                if(height[right] > maxRight)
+                maxRight = height[right];
+                else
+                    total += maxRight - height[right];
+                    right--;
+                     
+            }
+        }
+        return total;
+    }
+
+
+// Difference:  
+// 👉 If left++ / right-- are placed inside the water‑calculation else, the pointer moves only when water is added. 
+//If they’re placed outside, the pointer moves every iteration — but it’s still correct because when boundaries are updated, water at that index is zero, so skipping forward is safe.
+// That’s the invariant: each index is processed once, either by updating boundary or adding water, so unconditional pointer movement still yields the same total.
