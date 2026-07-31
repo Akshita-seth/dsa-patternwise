@@ -44,8 +44,10 @@ int findMaxConsecutiveOnesII_Prefix(vector<int>& nums) {
 
 
 
-// Optimized solution
+// Optimized solutions [Give in interviews]
 // TC: O(N) SC: O(1)
+
+// 1. GREEDY Approach
 //Interview phrasing: “I track both streaks in one pass, achieving linear time and constant space.”
 #include <bits/stdc++.h>
 using namespace std;
@@ -75,9 +77,23 @@ int maxConsecutiveOne(vector<int> arr, int N)
     return ret;
 }
 
-int main() {
-    vector<int> arr = {0,1,0,1,1};
-    int N = arr.size();
+// 2. Sliding Window Approach
+// Maintain a window [left, right] that contains at most one zero.
+// Expand right as you traverse.
+// If the window has more than one zero, shrink left until only one zero remains.
+// Track the maximum window length
 
-    cout << maxConsecutiveOne(arr, N);
+int longestOnes(vector<int>& nums) {
+    int left = 0, zeroCount = 0, maxLen = 0;
+    for (int right = 0; right < nums.size(); right++) {
+        if (nums[right] == 0) zeroCount++; 
+        while (zeroCount > 1) { // shrinking
+            if (nums[left] == 0) zeroCount--;
+            left++;
+        }
+        maxLen = max(maxLen, right - left + 1);
+    }
+    return maxLen;
 }
+
+
