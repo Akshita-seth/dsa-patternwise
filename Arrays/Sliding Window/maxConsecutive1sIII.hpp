@@ -54,22 +54,25 @@ public:
 
 //Optimized: TC:O(N)
 //Here we will not make the right pointer wait while the left pointer comes to a valid index. We will keep the right pointer moving.
-
+// With or without maxi, both can be done
 class Solution {
 public:
     int longestOnes(vector<int>& nums, int k) {
-        int n=nums.size();
-        int left = 0, zeros = 0;
-        
-        for(int right=0; right<n;  right++)
+        int n = nums.size();
+        int maxi=0, left=0, zeros=0;
+        for(int right=0; right<n; right++)
         {
-            if(nums[right] == 0) zeros++;
-            if(zeros > k) 
+            if(nums[right] == 0)
+            zeros++;
+            if(zeros > k)
             {
-                if(nums[left] == 0)  zeros--;
+                if(nums[left] == 0) 
+                zeros--;
                 left++;
             }
+            // maxi = max(maxi, right-left+1);
         }
+        //return maxi;
         return n-left;
     }
 };
