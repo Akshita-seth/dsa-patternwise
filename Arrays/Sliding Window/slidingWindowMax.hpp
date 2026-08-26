@@ -1,6 +1,6 @@
 //Problem" Sliding Window Maximum
-//https://leetcode.com/problems/sliding-window-maximum/
-https://www.youtube.com/watch?v=e8iJPXS64MY&list=PLvNVexrplJJyQTJ7a6sx3MzZjq1cR2geB&index=10
+//  https://leetcode.com/problems/sliding-window-maximum/
+// https://www.youtube.com/watch?v=e8iJPXS64MY&list=PLvNVexrplJJyQTJ7a6sx3MzZjq1cR2geB&index=10
 
 //BFS: TC: O((n-k)*k)
 
