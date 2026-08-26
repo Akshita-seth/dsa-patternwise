@@ -24,6 +24,7 @@ public:
 
 // Better: every insertion and deletion will cost us log k time complexity
 // Use heap data structure of k size as the window
+// TC: O(NlogN) SC: O(N)
 
 
 //Optimized: TC: O(N) [worst case O(2N)]  SC: O(K) [both best and worst]
